@@ -3,13 +3,14 @@
 using namespace MathUtility;
 
 // 初期化
-void Particle::Initialize(Model* model)
+void Particle::Initialize(Model* model, Vector3 position)
 {
 	// NULLポインタチェック
 	assert(model);
 
 	// 引数として受け取ったデータをメンバ変数に記録する
 	model_ = model;
+	worldTransform_.translation_ = position;
 
 	// ワールド変換の初期化
 	worldTransform_.Initialize();

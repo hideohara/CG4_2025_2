@@ -14,7 +14,9 @@ public:
     /// 初期化
     /// </summary>
     /// <param name="model">モデル</param>
-    void Initialize(Model* model);
+    /// <param name="position">位置</param>
+    void Initialize(Model* model, Vector3 position);
+
 
     /// <summary>
     /// 更新
@@ -38,5 +40,4 @@ private:
     ObjectColor objectColor_;
     // 色の数値
     Vector4 color_;
-
 };
