@@ -16,7 +16,7 @@ public:
     /// <param name="model">モデル</param>
     /// <param name="position">位置</param>
     /// <param name="velocity">移動量</param>
-    void Initialize(Model* model, Vector3 position, Vector3 velocity);
+    void Initialize(KamataEngine::Model* model, KamataEngine::Vector3 position, KamataEngine::Vector3 velocity);
 
 
     /// <summary>
@@ -29,7 +29,7 @@ public:
     /// 描画
     /// </summary>
     /// <param name="camera">カメラ</param>
-    void Draw(Camera& camera);
+    void Draw(KamataEngine::Camera& camera);
 
     // デスフラグのgetter
     bool IsFinished() {
@@ -38,15 +38,15 @@ public:
 
 private:
     // ワールド変換データ
-    WorldTransform worldTransform_;
+    KamataEngine::WorldTransform worldTransform_;
     // モデル
-    Model* model_ = nullptr;
+    KamataEngine::Model* model_ = nullptr;
     // 色変更オブジェクト
-    ObjectColor objectColor_;
+    KamataEngine::ObjectColor objectColor_;
     // 色の数値
-    Vector4 color_;
+    KamataEngine::Vector4 color_;
     // 移動量
-    Vector3 velocity_;
+    KamataEngine::Vector3 velocity_;
     // 終了フラグ
     bool isFinished_ = false;
     // 経過時間カウント

@@ -21,6 +21,7 @@ GameScene::~GameScene()
 	for (Particle* particle : particles_) {
 		delete particle;
 	}
+	particles_.clear();
 
 }
 
