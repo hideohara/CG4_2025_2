@@ -46,6 +46,7 @@ void GameScene::Initialize()
 // 更新
 void GameScene::Update()
 {
+	/*
 	// 確率で発生
 	if (rand() % 20 == 0) {
 		// 発生位置は乱数
@@ -66,7 +67,7 @@ void GameScene::Update()
 		}
 		return false;
 		});
-
+	*/
 }
 
 // 描画
@@ -79,9 +80,9 @@ void GameScene::Draw()
 	Model::PreDraw(dxCommon->GetCommandList());
 
 	// パーティクル描画
-	for (Particle* particle : particles_) {
-		particle->Draw(camera_);
-	}
+	//for (Particle* particle : particles_) {
+	//	particle->Draw(camera_);
+	//}
 
 	// 3Dモデル描画後処理
 	Model::PostDraw();
