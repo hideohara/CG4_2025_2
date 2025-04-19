@@ -42,17 +42,17 @@ private:
 	//Vector3 velocity_ = { 0.0f, 0.0f, 0.0f };
 
 	// 終了フラグ
-	//bool isFinished_ = false;
-	//// 経過時間カウント
-	//float counter_ = 0.0f;
+	bool isFinished_ = false;
+	// 経過時間カウント
+	float counter_ = 0.0f;
 
-	//// 存続時間（消滅までの時間）<秒>
-	//static inline const float kDuration = 0.5f;
+	// 存続時間（消滅までの時間）<秒>
+	static inline const float kDuration = 0.5f;
 
-	//// 色変更オブジェクト
-	//KamataEngine::ObjectColor objectColor_;
-	//// 色の数値
-	//KamataEngine::Vector4 color_;
+	// 色変更オブジェクト
+	KamataEngine::ObjectColor objectColor_;
+	// 色の数値
+	KamataEngine::Vector4 color_;
 
 
 };
