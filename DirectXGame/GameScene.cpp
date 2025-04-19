@@ -16,12 +16,16 @@ GameScene::~GameScene()
 {
 	// 3Dモデルデータの解放
 	delete modelParticle_;
+	delete modelEffect_;
 
 	// パーティクルの解放
 	for (Particle* particle : particles_) {
 		delete particle;
 	}
 	particles_.clear();
+
+	// エフェクト
+	delete effect_;
 
 }
 
@@ -33,19 +37,21 @@ void GameScene::Initialize()
 
 	// 3Dモデルデータの生成
 	modelParticle_ = Model::CreateSphere(4, 4);
+	modelEffect_ = Model::CreateFromOBJ("plane");
 
 	// カメラの初期化
 	camera_.Initialize();
 
-
-
-
-
+	// エフェクト
+	effect_ = new Effect();
+	effect_->Initialize(modelEffect_);
 }
 
 // 更新
 void GameScene::Update()
 {
+	effect_->Update();
+
 	/*
 	// 確率で発生
 	if (rand() % 20 == 0) {
@@ -83,6 +89,8 @@ void GameScene::Draw()
 	//for (Particle* particle : particles_) {
 	//	particle->Draw(camera_);
 	//}
+
+	effect_->Draw(camera_);
 
 	// 3Dモデル描画後処理
 	Model::PostDraw();

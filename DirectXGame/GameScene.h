@@ -2,6 +2,7 @@
 
 #include "KamataEngine.h"
 #include "Particle.h"
+#include "Effect.h"
 
 // ゲームシーン
 class GameScene
@@ -38,6 +39,12 @@ private:
 	// パーティクル
 	Particle* particle_ = nullptr;
 	std::list<Particle*> particles_;
+
+	// 3Dモデル エフェクト
+	Model* modelEffect_ = nullptr;
+
+	// エフェクト
+	Effect* effect_ = nullptr;
 
 	/// <summary>
 /// パーティクル発生
