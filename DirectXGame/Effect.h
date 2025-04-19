@@ -12,7 +12,8 @@ public: // メンバ関数
 	/// 初期化
 	/// </summary>
 	//void Initialize(Model* model, Vector3 position, float rotate, float size);
-	void Initialize(KamataEngine::Model* model, float rotate, float size);
+	//void Initialize(KamataEngine::Model* model, float rotate, float size);
+	void Initialize(KamataEngine::Model* model, float rotate, float size, KamataEngine::Vector3 position);
 	//void Initialize(KamataEngine::Model* model);
 
 	/// <summary>
@@ -26,9 +27,9 @@ public: // メンバ関数
 	void Draw(KamataEngine::Camera& camera);
 
 	// デスフラグのgetter
-	//bool IsFinished() const {
-	//	return isFinished_;
-	//}
+	bool IsFinished() const {
+		return isFinished_;
+	}
 
 private:
 

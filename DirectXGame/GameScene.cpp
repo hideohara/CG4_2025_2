@@ -52,17 +52,31 @@ void GameScene::Initialize()
 	////effect_->Initialize(modelEffect_);
 
 	// エフェクト発生
-	EffectBorn();
+	///EffectBorn();
 }
 
 // 更新
 void GameScene::Update()
 {
+	// エフェクト発生
+	if (rand() % 10 == 0) {
+		Vector3 position = { distribution(randomEngine), distribution(randomEngine), 0 };
+		position *= 10;
+		EffectBorn(position);
+	}
 	// エフェクト更新
 	//effect_->Update();
 	for (Effect* effect : effects_) {
 		effect->Update();
 	}
+	// デスフラグの立ったエフェクトを削除
+	effects_.remove_if([](Effect* effect) {
+		if (effect->IsFinished()) {
+			delete effect;
+			return true;
+		}
+		return false;
+		});
 
 	/*
 	// 確率で発生
@@ -139,13 +153,13 @@ void GameScene::ParticleBorn(Vector3 position)
 
 
 // エフェクト発生
-void GameScene::EffectBorn()
+void GameScene::EffectBorn(Vector3 position)
 {
 	for (int32_t i = 0; i < 15; i++) {
 		Effect* effect = new Effect();
 		float rotate = distribution(randomEngine) * 3.14f;
 		float size = 1.0f + abs(distribution(randomEngine)) * 4;
-		effect->Initialize(modelEffect_, rotate, size);
+		effect->Initialize(modelEffect_, rotate, size, position);
 		effects_.push_back(effect);
 	}
 

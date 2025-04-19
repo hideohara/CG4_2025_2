@@ -55,6 +55,6 @@ private:
 	// エフェクト
 	std::list<Effect*> effects_;
 	// エフェクト発生
-	void EffectBorn();
+	void EffectBorn(KamataEngine::Vector3 position);
 };
 
