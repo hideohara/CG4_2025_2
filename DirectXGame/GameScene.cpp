@@ -9,8 +9,6 @@ std::mt19937 randomEngine(seedGenerator());
 std::uniform_real_distribution<float> distribution(-1.0f, 1.0f);
 
 
-
-
 // デストラクタ
 GameScene::~GameScene()
 {
@@ -25,8 +23,11 @@ GameScene::~GameScene()
 	particles_.clear();
 
 	// エフェクト
-	delete effect_;
-
+	//delete effect_;
+	for (Effect* effect : effects_) {
+		delete effect;
+	}
+	effects_.clear();
 }
 
 // 初期化
@@ -43,14 +44,25 @@ void GameScene::Initialize()
 	camera_.Initialize();
 
 	// エフェクト
-	effect_ = new Effect();
-	effect_->Initialize(modelEffect_);
+
+	//effect_ = new Effect();
+	//float rotate = distribution(randomEngine) * 3.14f;
+	//float size = 1.0f + distribution(randomEngine) * 4;
+	//effect_->Initialize(modelEffect_, rotate, size);
+	////effect_->Initialize(modelEffect_);
+
+	// エフェクト発生
+	EffectBorn();
 }
 
 // 更新
 void GameScene::Update()
 {
-	effect_->Update();
+	// エフェクト更新
+	//effect_->Update();
+	for (Effect* effect : effects_) {
+		effect->Update();
+	}
 
 	/*
 	// 確率で発生
@@ -90,7 +102,11 @@ void GameScene::Draw()
 	//	particle->Draw(camera_);
 	//}
 
-	effect_->Draw(camera_);
+	// エフェクト描画
+	//effect_->Draw(camera_);
+	for (Effect* effect : effects_) {
+		effect->Draw(camera_);
+	}
 
 	// 3Dモデル描画後処理
 	Model::PostDraw();
@@ -118,5 +134,19 @@ void GameScene::ParticleBorn(Vector3 position)
 	}
 
 
+
+}
+
+
+// エフェクト発生
+void GameScene::EffectBorn()
+{
+	for (int32_t i = 0; i < 15; i++) {
+		Effect* effect = new Effect();
+		float rotate = distribution(randomEngine) * 3.14f;
+		float size = 1.0f + abs(distribution(randomEngine)) * 4;
+		effect->Initialize(modelEffect_, rotate, size);
+		effects_.push_back(effect);
+	}
 
 }

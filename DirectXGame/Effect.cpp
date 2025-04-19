@@ -1,10 +1,10 @@
 #include "Effect.h"
 using namespace KamataEngine;
 
-//#include <algorithm>
+#include <algorithm>
 //
 //void Effect::Initialize(Model* model, Vector3 position, float rotate, float size)
-void Effect::Initialize(Model* model)
+void Effect::Initialize(Model* model, float rotate, float size)
 {
 
 	// 引数として受け取ったデータをメンバ変数に記録する
@@ -15,8 +15,8 @@ void Effect::Initialize(Model* model)
 	worldTransform_.Initialize();
 
 	//worldTransform_.translation_ = position;
-	//worldTransform_.rotation_.z = rotate;
-	//worldTransform_.scale_ = { 0.2f, size, 1.0f };
+	worldTransform_.rotation_.z = rotate;
+	worldTransform_.scale_ = { 0.2f, size, 1.0f };
 
 	//objectColor_.Initialize();
 	//color_ = { 1, 1, 1, 1 };

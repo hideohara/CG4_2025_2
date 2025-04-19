@@ -12,7 +12,8 @@ public: // メンバ関数
 	/// 初期化
 	/// </summary>
 	//void Initialize(Model* model, Vector3 position, float rotate, float size);
-	void Initialize(KamataEngine::Model* model);
+	void Initialize(KamataEngine::Model* model, float rotate, float size);
+	//void Initialize(KamataEngine::Model* model);
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -40,7 +41,7 @@ private:
 	//// 移動量
 	//Vector3 velocity_ = { 0.0f, 0.0f, 0.0f };
 
-	//// 終了フラグ
+	// 終了フラグ
 	//bool isFinished_ = false;
 	//// 経過時間カウント
 	//float counter_ = 0.0f;
@@ -49,9 +50,10 @@ private:
 	//static inline const float kDuration = 0.5f;
 
 	//// 色変更オブジェクト
-	//ObjectColor objectColor_;
+	//KamataEngine::ObjectColor objectColor_;
 	//// 色の数値
-	//Vector4 color_;
+	//KamataEngine::Vector4 color_;
+
 
 };
 
