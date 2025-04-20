@@ -59,7 +59,7 @@ void GameScene::Initialize()
 void GameScene::Update()
 {
 	// エフェクト発生
-	if (rand() % 10 == 0) {
+	if (rand() % 5 == 0) {
 		Vector3 position = { distribution(randomEngine), distribution(randomEngine), 0 };
 		position *= 10;
 		EffectBorn(position);
@@ -155,11 +155,12 @@ void GameScene::ParticleBorn(Vector3 position)
 // エフェクト発生
 void GameScene::EffectBorn(Vector3 position)
 {
+	Vector3 color = { abs(distribution(randomEngine)),abs(distribution(randomEngine)),abs(distribution(randomEngine)) };
 	for (int32_t i = 0; i < 15; i++) {
 		Effect* effect = new Effect();
 		float rotate = distribution(randomEngine) * 3.14f;
 		float size = 1.0f + abs(distribution(randomEngine)) * 4;
-		effect->Initialize(modelEffect_, rotate, size, position);
+		effect->Initialize(modelEffect_, rotate, size, position, color);
 		effects_.push_back(effect);
 	}
 

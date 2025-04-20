@@ -13,7 +13,7 @@ public: // メンバ関数
 	/// </summary>
 	//void Initialize(Model* model, Vector3 position, float rotate, float size);
 	//void Initialize(KamataEngine::Model* model, float rotate, float size);
-	void Initialize(KamataEngine::Model* model, float rotate, float size, KamataEngine::Vector3 position);
+	void Initialize(KamataEngine::Model* model, float rotate, float size, KamataEngine::Vector3 position, KamataEngine::Vector3 color);
 	//void Initialize(KamataEngine::Model* model);
 
 	/// <summary>
