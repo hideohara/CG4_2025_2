@@ -1,6 +1,7 @@
 #pragma once
 
 #include "KamataEngine.h"
+#include "Model2.h"
 
 // ゲームシーン
 class GameScene
@@ -26,7 +27,7 @@ private:
 	// テクスチャハンドル
 	uint32_t textureHandle_ = 0;
 	// 四角形
-	KamataEngine::Model* modelSquare_ = nullptr;
+	KamataEngine::Model2* modelSquare_ = nullptr;
 	// ワールド変換データ
 	KamataEngine::WorldTransform worldTransform_;
 

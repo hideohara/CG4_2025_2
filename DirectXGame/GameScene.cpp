@@ -7,11 +7,14 @@ GameScene::~GameScene()
 {
 	// 3Dモデルデータの解放
 	delete modelSquare_;
+
+	Model2::StaticFinalize();
 }
 
 // 初期化
 void GameScene::Initialize()
 {
+	Model2::StaticInitialize();
 	// カメラの初期化
 	camera_.Initialize();
 	// ファイル名を指定してテクスチャを読み込む
@@ -19,7 +22,7 @@ void GameScene::Initialize()
 	// ワールド変換の初期化
 	worldTransform_.Initialize();
 	// 3Dモデルデータの生成
-	modelSquare_ = Model::Create();
+	modelSquare_ = Model2::Create();
 }
 
 // 更新
@@ -36,11 +39,11 @@ void GameScene::Draw()
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 
 	// 3Dモデル描画前処理
-	Model::PreDraw(dxCommon->GetCommandList());
+	Model2::PreDraw(dxCommon->GetCommandList());
 
 	// 3Dモデルを描画
 	modelSquare_->Draw(worldTransform_, camera_, textureHandle_);
 
 	// 3Dモデル描画後処理
-	Model::PostDraw();
+	Model2::PostDraw();
 }
