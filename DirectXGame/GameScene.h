@@ -6,6 +6,11 @@
 class GameScene
 {
 public:
+	/// <summary>
+	/// デストラクタ
+	/// </summary>
+	~GameScene();
+
 	// 初期化
 	void Initialize();
 
@@ -14,5 +19,16 @@ public:
 
 	// 描画
 	void Draw();
+
+private:
+	// カメラ
+	KamataEngine::Camera camera_;
+	// テクスチャハンドル
+	uint32_t textureHandle_ = 0;
+	// 四角形
+	KamataEngine::Model* modelSquare_ = nullptr;
+	// ワールド変換データ
+	KamataEngine::WorldTransform worldTransform_;
+
 };
 
