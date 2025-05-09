@@ -22,7 +22,7 @@ void GameScene::Initialize()
 	// ワールド変換の初期化
 	worldTransform_.Initialize();
 	// 3Dモデルデータの生成
-	modelSquare_ = Model2::Create();
+	modelSquare_ = Model2::CreateSquare();
 }
 
 // 更新

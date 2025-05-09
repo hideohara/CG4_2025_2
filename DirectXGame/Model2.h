@@ -148,6 +148,14 @@ public: // 静的メンバ関数
 	/// </summary>
 	static void PostDraw();
 
+
+	/// <summary>
+	/// 四角形モデルの生成
+	/// </summary>
+	/// <returns></returns>
+	static Model2* CreateSquare();
+
+
 public: // メンバ関数
 	~Model2() = default;
 
