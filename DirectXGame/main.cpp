@@ -15,13 +15,13 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 
 	// ゲームシーンのインスタンス生成
-	//GameScene* gameScene = new GameScene();
+	GameScene* gameScene = new GameScene();
 	// ゲームシーンの初期化
-	//gameScene->Initialize();
+	gameScene->Initialize();
 	// タイトルシーンのインスタンス生成
-	TitleScene* titleScene = new TitleScene();
-	// タイトルシーンの初期化
-	titleScene->Initialize();
+	//TitleScene* titleScene = new TitleScene();
+	//// タイトルシーンの初期化
+	//titleScene->Initialize();
 
 	// メインループ
 	while (true) {
@@ -31,31 +31,31 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		}
 
 		// ゲームシーンの更新
-		//gameScene->Update();
+		gameScene->Update();
 		// タイトルシーンの更新
-		titleScene->Update();
+		//titleScene->Update();
 
 		// 描画開始
 		dxCommon->PreDraw();
 
 		// ゲームシーンの描画
-		//gameScene->Draw();
+		gameScene->Draw();
 		// タイトルシーンの描画
-		titleScene->Draw();
+		//titleScene->Draw();
 
 		// 描画終了
 		dxCommon->PostDraw();
 	}
 
 	// ゲームシーンの削除
-	//delete gameScene;
+	delete gameScene;
 	// nullptrの代入
-	//gameScene = nullptr;
+	gameScene = nullptr;
 	
 	// タイトルシーンの削除
-	delete titleScene;
+	//delete titleScene;
 	// nullptrの代入
-	titleScene = nullptr;
+	//titleScene = nullptr;
 
 	// エンジンの終了処理
 	KamataEngine::Finalize();

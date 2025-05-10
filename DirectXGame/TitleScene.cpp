@@ -22,7 +22,7 @@ void TitleScene::Initialize()
 
 	// スプライトインスタンスの生成
 	sprite_ = Sprite::Create(textureHandle_, { 0, 0 });
-	spriteFont_ = Sprite::Create(textureHandleFont_, { 50, -100 });
+	spriteFont_ = Sprite::Create(textureHandleFont_, { 50, -300 });
 	spriteHit_ = Sprite::Create(textureHandleHit_, { 400, 550 });
 }
 
@@ -30,8 +30,13 @@ void TitleScene::Initialize()
 void TitleScene::Update()
 {
 	// タイマーカウント
-	timer++;
+	//if (Input::GetInstance()->PushKey(DIK_SPACE)) {
+	//}
+	//else {
+	//	return;
+	//}
 
+	timer++;
 	// 文字移動
 	Vector2 position = spriteFont_->GetPosition();
 	if (position.y < 100) {
