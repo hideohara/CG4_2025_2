@@ -2,6 +2,7 @@
 
 #include "KamataEngine.h"
 #include "Stage.h"
+#include "Player.h"
 
 // ゲームシーン
 class GameScene
@@ -22,12 +23,13 @@ public:
 private:
 	// テクスチャハンドル
 	uint32_t textureHandleStage_ = 0;
+	// 3Dモデル
+	KamataEngine::Model* modelPlayer_ = nullptr;
+	// カメラ
+	KamataEngine::Camera camera_;
+	// クラス
 	Stage* stage_ = nullptr;
-	//// 3Dモデル
-	//KamataEngine::Model* modelPlayer_ = nullptr;
-	//// ワールド変換データ
-	//KamataEngine::WorldTransform worldTransform_;
-	//// カメラ
-	//KamataEngine::Camera camera_;
+	Player* player_ = nullptr;
+
 };
 
