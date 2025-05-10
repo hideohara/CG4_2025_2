@@ -4,6 +4,9 @@
 class TitleScene
 {
 public:
+	// デストラクタ
+	~TitleScene();
+
 	// 初期化
 	void Initialize();
 
@@ -16,10 +19,16 @@ public:
 private:
 	// テクスチャハンドル
 	uint32_t textureHandle_ = 0;
+	uint32_t textureHandleFont_ = 0;
+	uint32_t textureHandleHit_ = 0;
+
 	// スプライト
 	KamataEngine::Sprite* sprite_ = nullptr;
+	KamataEngine::Sprite* spriteFont_ = nullptr;
+	KamataEngine::Sprite* spriteHit_ = nullptr;
 
-
+	int timer = 0;
+	int y = -100;
 
 };
 
