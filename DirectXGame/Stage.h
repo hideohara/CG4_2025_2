@@ -4,6 +4,9 @@
 class Stage
 {
 public:
+	// デストラクタ
+	~Stage();
+
 	// 初期化
 	void Initialize(int TtextureHandle);
 

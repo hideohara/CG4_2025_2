@@ -3,6 +3,12 @@
 using namespace KamataEngine;
 using namespace MathUtility;
 
+Stage::~Stage()
+{
+	delete sprite_;
+	delete sprite2_;
+}
+
 // 初期化
 void Stage::Initialize(int TtextureHandle)
 {

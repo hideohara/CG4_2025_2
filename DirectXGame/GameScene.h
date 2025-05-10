@@ -23,6 +23,8 @@ public:
 private:
 	// テクスチャハンドル
 	uint32_t textureHandleStage_ = 0;
+	uint32_t textureHandleGreen_ = 0;
+	uint32_t textureHandleRed_ = 0;
 	// 3Dモデル
 	KamataEngine::Model* modelPlayer_ = nullptr;
 	// カメラ

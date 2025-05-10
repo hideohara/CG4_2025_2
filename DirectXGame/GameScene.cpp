@@ -15,12 +15,10 @@ void GameScene::Initialize()
 {
 	// ファイル名を指定してテクスチャを読み込む
 	textureHandleStage_ = TextureManager::Load("stage.png");
+	textureHandleRed_ = TextureManager::Load("red.png");
+	textureHandleGreen_ = TextureManager::Load("green.png");
 	// 3Dモデルの生成
 	modelPlayer_ = Model::CreateFromOBJ("player");
-	//// ワールド変換の初期化
-	//worldTransform_.Initialize();
-	//worldTransform_.rotation_.y = 3.14f / 2.0f;
-	//worldTransform_.translation_ = { -10.0f, -5.0f, 0.0f };
 
 	// カメラの初期化
 	camera_.translation_ = { 0,0,-20 };
