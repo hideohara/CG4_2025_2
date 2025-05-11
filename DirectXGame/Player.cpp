@@ -53,3 +53,6 @@ void Player::Draw(Camera& camera)
 {
 	model_->Draw(worldTransform_, camera);
 }
+
+
+

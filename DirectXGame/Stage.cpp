@@ -10,7 +10,7 @@ Stage::~Stage()
 }
 
 // 初期化
-void Stage::Initialize(int TtextureHandle)
+void Stage::Initialize(uint32_t TtextureHandle)
 {
 	textureHandle_ = TtextureHandle;
 

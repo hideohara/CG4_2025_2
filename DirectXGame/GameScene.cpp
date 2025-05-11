@@ -7,6 +7,8 @@ GameScene::~GameScene()
 {
 	delete stage_;
 	delete player_;
+	delete graphBar_;
+
 	delete modelPlayer_;
 }
 
@@ -15,8 +17,7 @@ void GameScene::Initialize()
 {
 	// ファイル名を指定してテクスチャを読み込む
 	textureHandleStage_ = TextureManager::Load("stage.png");
-	textureHandleRed_ = TextureManager::Load("red.png");
-	textureHandleGreen_ = TextureManager::Load("green.png");
+	textureHandleGraph_ = TextureManager::Load("white1x1.png");
 	// 3Dモデルの生成
 	modelPlayer_ = Model::CreateFromOBJ("player");
 
@@ -28,13 +29,20 @@ void GameScene::Initialize()
 	stage_->Initialize(textureHandleStage_);
 	player_ = new Player();
 	player_->Initialize(modelPlayer_);
+	graphBar_ = new GraphBar();
+	graphBar_->Initialize(textureHandleGraph_);
 }
 
 // 更新
 void GameScene::Update()
 {
+	hp_--;
+	if (hp_ < 0) {
+		hp_ = 200u;
+	}
 	stage_->Update();
 	player_->Update();
+	graphBar_->Update(hp_);
 }
 
 // 描画
@@ -61,4 +69,13 @@ void GameScene::Draw()
 
 	// 3Dモデル描画後処理
 	Model::PostDraw();
+
+	// スプライト描画前処理
+	Sprite::PreDraw(dxCommon->GetCommandList());
+
+	graphBar_->Draw();
+
+	// スプライト描画後処理
+	Sprite::PostDraw();
+
 }
