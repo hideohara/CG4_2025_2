@@ -220,11 +220,11 @@ Model2* Model2::CreateRing(int divide)
 		vertices[index + 0].uv = { 0, 1 };
 		vertices[index + 0].normal = { 0, 0, 1 };
 		// 左上
-		vertices[index + 1].pos = { x2 * inside, y2 * inside, 0.0f };
+		vertices[index + 2].pos = { x * outside, y * outside, 0.0f };
 		vertices[index + 1].uv = { 0, 0 };
 		vertices[index + 1].normal = { 0, 0, 1 };
 		// 右下
-		vertices[index + 2].pos = { x * outside, y * outside, 0.0f };
+		vertices[index + 1].pos = { x2 * inside, y2 * inside, 0.0f };
 		vertices[index + 2].uv = { 1, 1 };
 		vertices[index + 2].normal = { 0, 0, 1 };
 		// 右上
