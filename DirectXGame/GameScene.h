@@ -4,6 +4,7 @@
 #include "Stage.h"
 #include "Player.h"
 #include "GraphBar.h"
+#include "DrawNumber.h"
 
 // ゲームシーン
 class GameScene
@@ -25,6 +26,7 @@ private:
 	// テクスチャハンドル
 	uint32_t textureHandleStage_ = 0;
 	uint32_t textureHandleGraph_ = 0;
+	uint32_t textureHandleNumber_ = 0;
 	// 3Dモデル
 	KamataEngine::Model* modelPlayer_ = nullptr;
 	// カメラ
@@ -33,7 +35,10 @@ private:
 	Stage* stage_ = nullptr;
 	Player* player_ = nullptr;
 	GraphBar* graphBar_ = nullptr;
+	DrawNumber* drawNumber_ = nullptr;
 	// HP
 	int hp_ = 200;
+	// score
+	int gameScore_ = 0;
 };
 
